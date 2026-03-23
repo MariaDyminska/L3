@@ -1,43 +1,136 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookStore</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+<header>
+    <div class="container">
+        <h1>📚 Онлайн-магазин книг</h1>
+        <p class="subtitle">Знайди свою наступну улюблену книгу</p>
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+        <nav>
+            <ul>
+                <li><a href="#catalog">Каталог</a></li>
+                <li><a href="#recommended">Рекомендації</a></li>
+                <li><a href="#cart">Кошик</a></li>
+                <li><a href="#account">Мій акаунт</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+<main class="container">
+
+    <section id="catalog">
+        <h2>Каталог книг</h2>
+        <p class="section-text">
+            У нашому каталозі зібрані популярні книги з програмування,
+            саморозвитку та сучасних технологій.
+        </p>
+
+        <div class="books">
+
+            <article class="book-card" data-id="1" data-title="Clean Code" data-price="450">
+                <img src="https://m.media-amazon.com/images/I/41SH-SvWPxL.jpg" alt="Обкладинка книги Clean Code">
+                <h3>Clean Code</h3>
+                <p><strong>Автор:</strong> Robert Martin</p>
+                <p class="book-price"><strong>Ціна:</strong> 450 грн</p>
+                <p><strong>Рейтинг:</strong> ⭐ 4.8</p>
+                <button class="add-btn">Додати в кошик</button>
+            </article>
+
+            <article class="book-card" data-id="2" data-title="Python Crash Course" data-price="520">
+                <img src="https://m.media-amazon.com/images/I/51WIKlio9qL.jpg" alt="Обкладинка книги Python Crash Course">
+                <h3>Python Crash Course</h3>
+                <p><strong>Автор:</strong> Eric Matthes</p>
+                <p class="book-price"><strong>Ціна:</strong> 520 грн</p>
+                <p><strong>Рейтинг:</strong> ⭐ 4.7</p>
+                <button class="add-btn">Додати в кошик</button>
+            </article>
+
+            <article class="book-card" data-id="3" data-title="Atomic Habits" data-price="390">
+                <img src="https://m.media-amazon.com/images/I/81ANaVZk5LL.jpg" alt="Обкладинка книги Atomic Habits">
+                <h3>Atomic Habits</h3>
+                <p><strong>Автор:</strong> James Clear</p>
+                <p class="book-price"><strong>Ціна:</strong> 390 грн</p>
+                <p><strong>Рейтинг:</strong> ⭐ 4.9</p>
+                <button class="add-btn">Додати в кошик</button>
+            </article>
+
+            <article class="book-card" data-id="4" data-title="Deep Learning" data-price="620">
+                <img src="https://static.yakaboo.ua/media/catalog/product/9/7/9783031296413_0.jpg" alt="Обкладинка книги Deep Learning">
+                <h3>Deep Learning</h3>
+                <p><strong>Автор:</strong> Ian Goodfellow</p>
+                <p class="book-price"><strong>Ціна:</strong> 620 грн</p>
+                <p><strong>Рейтинг:</strong> ⭐ 4.6</p>
+                <button class="add-btn">Додати в кошик</button>
+            </article>
+
+        </div>
+    </section>
+
+    <section id="recommended">
+        <h2>Рекомендовані книги</h2>
+        <p class="section-text">
+            Список нижче створюється JavaScript через цикл <strong>for</strong>
+            і змінюється після кожного оновлення сторінки.
+        </p>
+        <div class="recommend-box">
+            <ul id="recommend-list"></ul>
+        </div>
+    </section>
+
+    <section id="cart">
+        <h2>Кошик</h2>
+        <p class="section-text">
+            Додані книги зберігаються у кошику, а сума автоматично
+            перераховується при зміні кількості.
+        </p>
+
+        <div class="cart-box">
+            <div id="cart-items">
+                <p class="empty-cart">Кошик порожній</p>
+            </div>
+
+            <p class="total">
+                <strong>Загальна сума: <span id="total-price">0</span> грн</strong>
+            </p>
+        </div>
+    </section>
+
+    <section id="account">
+        <h2>Мій акаунт</h2>
+        <p><strong>Ім'я:</strong> Марія Димінська</p>
+        <p><strong>Email:</strong> maria@email.com</p>
+
+        <h3>Історія покупок</h3>
+        <ul>
+            <li>Python Crash Course</li>
+            <li>Clean Code</li>
+        </ul>
+
+        <h3>Налаштування</h3>
+        <ul>
+            <li>Улюблений жанр: Програмування</li>
+            <li>Тип акаунта: Постійний покупець</li>
+        </ul>
+    </section>
+
+</main>
+
+<footer>
+    <div class="container">
+        <p>📍 Львів | 📞 +380969031125 | ✉ bookstore@email.com</p>
+        <p>© 2026 BookStore. Усі права захищені.</p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
 </html>
